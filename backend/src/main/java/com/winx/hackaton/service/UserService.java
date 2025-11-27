@@ -20,7 +20,6 @@ public class UserService {
         User u = User.builder()
                 .email(email)
                 .password(encoder.encode(rawPassword))
-                .roles("ROLE_USER")
                 .build();
         return repo.save(u);
     }

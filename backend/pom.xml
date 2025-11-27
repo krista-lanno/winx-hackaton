@@ -47,9 +47,10 @@
 			<artifactId>spring-boot-starter-webmvc</artifactId>
 		</dependency>
 
+		<!-- PostgreSQL Driver -->
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -104,6 +105,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!-- Liqiubase -->
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
         </dependency>
 	</dependencies>
 
