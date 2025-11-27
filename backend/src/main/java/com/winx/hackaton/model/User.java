@@ -15,6 +15,4 @@ public class User {
 
     @Column(nullable = false)
     private String password; // hashed
-
-    private String roles; // comma separated, e.g. "ROLE_USER"
 }

@@ -14,9 +14,16 @@ databaseChangeLog: # databseChaneLog -> conatains databse changes
                   constraints:
                     primaryKey: true
                     nullable: false
+              # Name column - we might want to know the users name too
+              # But there is no place in register
+              #- column:
+              #    name: name
+              #    type: VARCHAR(255)
+              #    constraints:
+              #      nullable: false
               # Email column
               - column:
-                  name: email;
+                  name: email
                   type: VARCHAR(255)
                   constraints:
                     nullable: false
