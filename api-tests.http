@@ -1,0 +1,61 @@
+### VS Code REST Client Test File
+### For testing accesses to another accounts
+
+### 1. Register User A
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "userA@test.com",
+  "password": "password123"
+}
+
+### 2. Register User B
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "userB@test.com",
+  "password": "password456"
+}
+
+### 3. Login User A (alternative to register if already exists)
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "userA@test.com",
+  "password": "password123"
+}
+
+### 4. Login User B
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "userB@test.com",
+  "password": "password456"
+}
+
+### 5. Get User A's profile (replace TOKEN_A with actual token)
+GET http://localhost:8080/api/users/me
+Authorization: Bearer TOKEN_A
+
+### 6. User A accesses their own data by ID (should work ✅)
+GET http://localhost:8080/api/users/1
+Authorization: Bearer TOKEN_A
+
+### 7. User A tries to access User B's data (should FAIL with 403 ✅)
+GET http://localhost:8080/api/users/2
+Authorization: Bearer TOKEN_A
+
+### 8. User B accesses their own data (should work ✅)
+GET http://localhost:8080/api/users/2
+Authorization: Bearer TOKEN_B
+
+### 9. No authentication (should FAIL with 401 ✅)
+GET http://localhost:8080/api/users/1
+
+### 10. Test protected endpoint
+GET http://localhost:8080/api/auth/protected-test
+Authorization: Bearer TOKEN_A
