@@ -61,6 +61,30 @@
     transform: none;
 }
 
+.google-btn {
+    width: 100%;
+    padding: 0.875rem;
+    background-color: #ffffff;
+    color: #444;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    border: 2px solid #ddd;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.google-btn:hover {
+    background-color: #f8f8f8;
+    border-color: #ccc;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
 .auth-link {
     text-align: center;
     color: var(--text-light);

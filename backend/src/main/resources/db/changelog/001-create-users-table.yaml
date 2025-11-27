@@ -33,5 +33,5 @@ databaseChangeLog: # databseChaneLog -> conatains databse changes
                   name: password
                   type: VARCHAR(255)
                   constraints:
-                    nullable: false
+                    nullable: true
 
