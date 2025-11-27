@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { register } from "../services/authService";
-import { useNavigate } from "react-router-dom";
-import "../styles/style.css";
+import { useNavigate, Link } from "react-router-dom";
+import "../styles/auth.css";
 
 export default function Register() {
     const [email, setEmail] = useState("");
@@ -17,11 +17,10 @@ export default function Register() {
 
         try {
             await register({ email, password });
-            alert("Registration successful! You are now logged in.");
-            navigate("/dashboard"); // Redirect to dashboard or protected page
+            alert("Registration successful! You can now log in.");
+            navigate("/login");
         } catch (err) {
-            setError(err.toString());
-            alert("Registration failed: " + err);
+            setError(err.response?.data?.message || "Registration failed. Please try again.");
         } finally {
             setLoading(false);
         }
@@ -30,29 +29,35 @@ export default function Register() {
     return (
         <div className="auth-container">
             <form onSubmit={handleSubmit} className="auth-form">
-                <h2>Register</h2>
+                <h2>Create Account</h2>
                 {error && <div className="error-message">{error}</div>}
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                    required
-                    disabled={loading}
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                    required
-                    disabled={loading}
-                />
-                <button type="submit" disabled={loading}>
-                    {loading ? "Registering..." : "Register"}
+                <div className="form-group">
+                    <input
+                        type="email"
+                        placeholder="Email address"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        className="form-input"
+                        required
+                        disabled={loading}
+                    />
+                </div>
+                <div className="form-group">
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                        className="form-input"
+                        required
+                        disabled={loading}
+                    />
+                </div>
+                <button type="submit" className="submit-btn" disabled={loading}>
+                    {loading ? "Creating Account..." : "Create Account"}
                 </button>
-                <p>
-                    Already have an account? <a href="/login">Login here</a>
+                <p className="auth-link">
+                    Already have an account? <Link to="/login">Sign in here</Link>
                 </p>
             </form>
         </div>
