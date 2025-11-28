@@ -1,9 +1,1 @@
-target/
-node_modules/
-frontend/dist/
-*.iml
-.vscode/
-.env
-backend/.env
-.DS_Store
-.idea/
+target/\nnode_modules/\nfrontend/dist/\n*.iml\n.vscode/\n.env\n.DS_Store

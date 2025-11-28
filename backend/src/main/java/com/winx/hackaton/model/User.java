@@ -13,6 +13,6 @@ public class User {
     @Column(unique = true, nullable = false)
     private String email;
 
-    @Column(nullable = false) // Changed to true because of googleId
+    @Column(nullable = false)
     private String password; // hashed
 }

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { login } from "../services/authService";
 import { useNavigate, Link } from "react-router-dom";
-import GoogleLogo from "../components/GoogleLogo";
 import "../styles/auth.css";
 
 export default function Login() {
@@ -56,18 +55,6 @@ export default function Login() {
                 <button type="submit" className="submit-btn" disabled={loading}>
                     {loading ? "Signing In..." : "Sign In"}
                 </button>
-
-                <div style={{ textAlign: 'center', margin: '1rem 0', color: '#999' }}>OR</div>
-
-                <button
-                    type="button"
-                    className="google-btn"
-                    onClick={() => window.location.href = 'http://localhost:8080/oauth2/authorization/google'}
-                >
-                    <GoogleLogo />
-                    Sign in with Google
-                </button>
-
                 <p className="auth-link">
                     Don't have an account? <Link to="/register">Create one here</Link>
                 </p>
